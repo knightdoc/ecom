@@ -12,6 +12,10 @@ https://knightdoc.github.io/ecom/index.html
 -All photos curated for upsplash for placeholder purposes 
 
 ---------------------------------------------------------------------------------------------------
--TO DO-
+TO DO
 Update photos 
 Menu button (Mobil) to leave store menu page, Not Working
+
+
+
+
