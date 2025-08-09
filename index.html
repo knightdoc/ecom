@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="stylehome.css">
 </head>
 <body>
-  <!-- Header and Navigation -->
+
   <header>
     <div class="container nav">
       <a class="brand" href="index.html" aria-label="River City Bakery home">
@@ -28,7 +28,7 @@
     </div>
   </header>
 
-  <!-- Hero -->
+
   <section class="hero">
     <div class="container hero-wrap">
       <div>
@@ -83,7 +83,7 @@
     </div>
   </section>
 
-  <!-- Promo band audio or video later -->
+  <!-- Promo audio or video later -->
   <section class="section">
     <div class="container">
       <div class="promo">
@@ -164,7 +164,7 @@
     const menu = document.querySelector('.menu');
     toggle?.addEventListener('click', () => menu.classList.toggle('show'));
 
-    // Fake add-to-cart (for demo)
+    // Fake add-to-cart
     document.querySelectorAll('.add').forEach(btn=>{
       btn.addEventListener('click', e=>{
         const item = e.currentTarget.getAttribute('data-item');
