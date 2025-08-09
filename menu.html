@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>River City Bakery | Store</title>
+  <meta name="description" content="Shop fresh breads, pastries, and drinks from River City Bakery." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="River City Bakery home">
+        <div class="brand-logo" aria-hidden="true"></div>
+        <span class="brand-name">River City Bakery</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <nav class="menu" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="store.html" aria-current="page">Store 🛒</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Store Header Blurb -->
+  <section class="section" style="padding-top:20px;">
+    <div class="container">
+      <h1 class="brand-name" style="font-size:1.8rem;">Refurbished Laptops & Desktops</h1>
+      <p class="tiny" style="max-width:720px">
+        Browse our selection of professionally refurbished laptops and desktop computers—tested, cleaned, and ready to perform.
+        Whether you're working, studying, or gaming, we offer reliable systems at affordable prices, backed by local support you can trust.
+      </p>
+      <div class="promo" style="margin-top:14px;">
+        <strong>Tip:</strong> Use the filters to find exactly what you need, then add items to your cart and proceed to checkout.
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters / Search -->
+  <section class="section" style="padding-top:0;">
+    <div class="container newsletter">
+      <form id="filters" class="row" onsubmit="event.preventDefault()">
+        <input type="search" id="q" placeholder="Search products…" aria-label="Search products">
+        <select id="cat" aria-label="Filter by category">
+          <option value="">All categories</option>
+          <option value="laptop">Laptops</option>
+          <option value="desktop">Desktops</option>
+          <option value="accessory">Accessories</option>
+        </select>
+        <select id="sort" aria-label="Sort products">
+          <option value="popular">Sort: Popular</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name-asc">Name: A → Z</option>
+        </select>
+        <button class="btn" type="button" id="clearFilters">Clear</button>
+        <button class="btn" type="button" id="viewCart">Cart (0)</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Product Grid -->
+  <section class="section">
+    <div class="container">
+      <div id="grid" class="grid" aria-live="polite">
+        <!-- Items populated by JS below (you can hard-code if you prefer) -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart Dialog (native, no extra CSS required) -->
+  <dialog id="cartDialog" aria-labelledby="cartTitle" style="max-width:640px;width:90%;">
+    <form method="dialog" style="margin:0;">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 6px;">
+        <h2 id="cartTitle" style="margin:0;font-family:'Playfair Display',serif;">Your Cart</h2>
+        <button class="btn secondary" value="cancel" aria-label="Close cart">Close</button>
+      </div>
+      <div id="cartItems" class="container" style="max-height:50vh;overflow:auto;padding-bottom:8px;"></div>
+      <div class="container" style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-top:1px solid #eee;">
+        <strong>Total: <span id="cartTotal">$0.00</span></strong>
+        <button class="btn" id="checkoutBtn" value="default">Checkout</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container foot">
+      <div>
+        <strong>River City Bakery</strong><br/>
+        123 Bakery Lane, Jacksonville, FL 32246<br/>
+        (123) 456-7890 • hello@rivercitybakery.com
+        <div class="tiny" style="margin-top:6px">© 2025 River City Bakery. All rights reserved.</div>
+      </div>
+      <div>
+        <small>
+          <a href="privacy.html">Privacy Policy</a> ·
+          <a href="terms.html">Terms</a> ·
+          <a href="accessibility.html">Accessibility</a>
+        </small>
+        <div class="tiny" style="margin-top:8px">Follow us: <a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">TikTok</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.querySelector('.menu');
+    toggle?.addEventListener('click', () => menu.classList.toggle('show'));
+
+    /** ---------- Store Data (Edit as needed) ---------- **/
+    const PRODUCTS = [
+      { id: 'lap-asus-i3',   name: 'ASUS Laptop (Intel i3, 4GB, 128GB SSD)', price: 179.00, category: 'laptop',
+        desc: 'Reliable everyday laptop—great for browsing, streaming, and school work.',
+        img: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1200&auto=format&fit=crop' },
+      { id: 'lap-dell-i5',   name: 'Dell Latitude (Intel i5, 8GB, 256GB SSD)', price: 259.00, category: 'laptop',
+        desc: 'Business-class performance with fast SSD and solid build quality.',
+        img: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop' },
+      { id: 'lap-hp-i7',     name: 'HP ProBook (Intel i7, 16GB, 512GB SSD)', price: 449.00, category: 'laptop',
+        desc: 'Power for multitasking, light content creation, and work-from-home.',
+        img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop' },
+      { id: 'desk-lenovo-i5',name: 'Lenovo ThinkCentre Desktop (i5, 16GB, 512GB SSD)', price: 329.00, category: 'desktop',
+        desc: 'Compact desktop with quick boot times and room to grow.',
+        img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop' },
+      { id: 'desk-hp-i3',    name: 'HP Desktop (i3, 8GB, 256GB SSD)', price: 229.00, category: 'desktop',
+        desc: 'Solid home or office PC for productivity and web use.',
+        img: 'https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop' },
+      { id: 'mon-24',        name: '24" IPS Monitor (1080p)', price: 79.00, category: 'accessory',
+        desc: 'Crisp full-HD display with wide viewing angles.',
+        img: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1200&auto=format&fit=crop' },
+      { id: 'kbm',           name: 'Wireless Keyboard & Mouse Combo', price: 25.00, category: 'accessory',
+        desc: 'Quiet typing, reliable wireless connection, long battery life.',
+        img: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop' },
+      { id: 'ssd-500',       name: '500GB SSD Upgrade (Installed)', price: 89.00, category: 'accessory',
+        desc: 'Blazing fast boots and app launches—includes installation.',
+        img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop' },
+    ];
+
+    /** ---------- Render Grid ---------- **/
+    const grid = document.getElementById('grid');
+    function fmt(n){ return n.toLocaleString(undefined, {style:'currency', currency:'USD'}); }
+
+    function productCard(p){
+      const el = document.createElement('article');
+      el.className = 'card';
+      el.setAttribute('data-cat', p.category);
+      el.setAttribute('data-name', p.name.toLowerCase());
+      el.setAttribute('data-price', p.price);
+      el.innerHTML = `
+        <img src="${p.img}" alt="${p.name}">
+        <div class="card-body">
+          <h3>${p.name}</h3>
+          <p class="tiny">${p.desc}</p>
+          <div class="price">${fmt(p.price)}</div>
+          <button class="btn add" data-id="${p.id}">Add to Cart</button>
+        </div>`;
+      return el;
+    }
+    function render(products){
+      grid.innerHTML = '';
+      products.forEach(p => grid.appendChild(productCard(p)));
+      bindAddButtons();
+    }
+
+    /** ---------- Filters / Sort ---------- **/
+    const q = document.getElementById('q');
+    const cat = document.getElementById('cat');
+    const sort = document.getElementById('sort');
+    const clearBtn = document.getElementById('clearFilters');
+
+    function applyFilters(){
+      let list = [...PRODUCTS];
+      const query = q.value.trim().toLowerCase();
+      const category = cat.value;
+
+      if(query){
+        list = list.filter(p => p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query));
+      }
+      if(category){
+        list = list.filter(p => p.category === category);
+      }
+      switch(sort.value){
+        case 'price-asc':  list.sort((a,b)=>a.price-b.price); break;
+        case 'price-desc': list.sort((a,b)=>b.price-a.price); break;
+        case 'name-asc':   list.sort((a,b)=>a.name.localeCompare(b.name)); break;
+        default: /* popular */ break;
+      }
+      render(list);
+    }
+    q.addEventListener('input', applyFilters);
+    cat.addEventListener('change', applyFilters);
+    sort.addEventListener('change', applyFilters);
+    clearBtn.addEventListener('click', () => {
+      q.value = ''; cat.value = ''; sort.value = 'popular';
+      applyFilters();
+    });
+
+    /** ---------- Cart (in-memory with localStorage sync) ---------- **/
+    const cartKey = 'rcb_cart_v1';
+    const viewCartBtn = document.getElementById('viewCart');
+    const cartDialog = document.getElementById('cartDialog');
+    const cartItems = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+
+    let CART = JSON.parse(localStorage.getItem(cartKey) || '[]'); // [{id, qty}]
+
+    function saveCart(){
+      localStorage.setItem(cartKey, JSON.stringify(CART));
+      updateCartCount();
+    }
+    function updateCartCount(){
+      const count = CART.reduce((n,i)=>n+i.qty,0);
+      viewCartBtn.textContent = `Cart (${count})`;
+    }
+    function addToCart(id){
+      const item = CART.find(i=>i.id===id);
+      if(item) item.qty++;
+      else CART.push({id, qty:1});
+      saveCart();
+    }
+    function removeFromCart(id){
+      CART = CART.filter(i=>i.id!==id);
+      saveCart();
+      renderCart();
+    }
+    function changeQty(id, delta){
+      const it = CART.find(i=>i.id===id);
+      if(!it) return;
+      it.qty += delta;
+      if(it.qty<=0){ removeFromCart(id); return; }
+      saveCart();
+      renderCart();
+    }
+    function renderCart(){
+      if(CART.length===0){
+        cartItems.innerHTML = '<p class="tiny">Your cart is empty.</p>';
+        cartTotal.textContent = fmt(0);
+        return;
+      }
+      const lines = CART.map(ci=>{
+        const p = PRODUCTS.find(x=>x.id===ci.id);
+        const line = p.price * ci.qty;
+        return `
+          <div class="card" style="margin:8px 0;">
+            <div class="card-body" style="display:flex;gap:12px;align-items:center;">
+              <img src="${p.img}" alt="${p.name}" style="width:72px;height:72px;object-fit:cover;border-radius:8px;">
+              <div style="flex:1;">
+                <strong>${p.name}</strong>
+                <div class="tiny">${fmt(p.price)} each</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <button class="btn secondary" data-act="dec" data-id="${ci.id}" aria-label="Decrease quantity">−</button>
+                <span><strong>${ci.qty}</strong></span>
+                <button class="btn" data-act="inc" data-id="${ci.id}" aria-label="Increase quantity">+</button>
+              </div>
+              <div style="width:90px;text-align:right;"><strong>${fmt(line)}</strong></div>
+              <button class="btn secondary" data-act="rm" data-id="${ci.id}" aria-label="Remove item">Remove</button>
+            </div>
+          </div>`;
+      }).join('');
+      cartItems.innerHTML = lines;
+      const total = CART.reduce((sum,ci)=>{
+        const p = PRODUCTS.find(x=>x.id===ci.id);
+        return sum + p.price*ci.qty;
+      },0);
+      cartTotal.textContent = fmt(total);
+
+      // Bind cart item buttons
+      cartItems.querySelectorAll('button[data-act]').forEach(b=>{
+        const id = b.getAttribute('data-id');
+        const act = b.getAttribute('data-act');
+        b.addEventListener('click', ()=>{
+          if(act==='inc') changeQty(id, +1);
+          if(act==='dec') changeQty(id, -1);
+          if(act==='rm')  removeFromCart(id);
+        });
+      });
+    }
+    function bindAddButtons(){
+      document.querySelectorAll('.add').forEach(btn=>{
+        btn.addEventListener('click', e=>{
+          const id = e.currentTarget.getAttribute('data-id');
+          addToCart(id);
+          // brief toast via alert (simple)
+          alert('Added to cart 🛒');
+        });
+      });
+    }
+
+    viewCartBtn.addEventListener('click', ()=>{
+      renderCart();
+      cartDialog.showModal();
+    });
+    document.getElementById('checkoutBtn').addEventListener('click', (e)=>{
+      e.preventDefault();
+      alert('Checkout demo — connect to your form/payment flow next.');
+      cartDialog.close();
+    });
+
+    // Init
+    updateCartCount();
+    applyFilters(); // renders grid
+  </script>
+</body>
+</html>
