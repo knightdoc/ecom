@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="stylehome.css">
 </head>
 <body>
-  <!-- Header / Navigation -->
+  
   <header>
     <div class="container nav">
       <a class="brand" href="index.html" aria-label="River City Bakery home">
@@ -28,7 +28,6 @@
     </div>
   </header>
 
-  <!-- Store Header Blurb -->
   <section class="section" style="padding-top:20px;">
     <div class="container">
       <h1 class="brand-name" style="font-size:1.8rem;">Order Fresh Breads, Pastries & Drinks</h1>
@@ -42,7 +41,6 @@
     </div>
   </section>
 
-  <!-- Filters / Search -->
   <section class="section" style="padding-top:0;">
     <div class="container newsletter">
       <form id="filters" class="row" onsubmit="event.preventDefault()">
@@ -66,14 +64,12 @@
     </div>
   </section>
 
-  <!-- Product Grid -->
   <section class="section">
     <div class="container">
       <div id="grid" class="grid" aria-live="polite"></div>
     </div>
   </section>
 
-  <!-- Cart Dialog -->
   <dialog id="cartDialog" aria-labelledby="cartTitle" style="max-width:640px;width:90%;">
     <form method="dialog" style="margin:0;">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 6px;">
@@ -88,7 +84,6 @@
     </form>
   </dialog>
 
-  <!-- Footer -->
   <footer>
     <div class="container foot">
       <div>
@@ -114,7 +109,6 @@
     const menu = document.querySelector('.menu');
     toggle?.addEventListener('click', () => menu.classList.toggle('show'));
 
-    /** ---------- Bakery Store Data ---------- **/
     const PRODUCTS = [
       // Breads
       { id:'bread-sourdough', name:'Country Sourdough Loaf', price:7.95, category:'bread',
@@ -158,7 +152,6 @@
         img:'https://images.unsplash.com/photo-1461009683696-876b66f9eb5b?q=80&w=1200&auto=format&fit=crop' }
     ];
 
-    /** ---------- Helpers ---------- **/
     const grid = document.getElementById('grid');
     function fmt(n){ return n.toLocaleString(undefined, {style:'currency', currency:'USD'}); }
 
@@ -184,7 +177,7 @@
       bindAddButtons();
     }
 
-    /** ---------- Filters / Sort ---------- **/
+    /** Filters / Sort  **/
     const q = document.getElementById('q');
     const cat = document.getElementById('cat');
     const sort = document.getElementById('sort');
@@ -217,7 +210,7 @@
       applyFilters();
     });
 
-    /** ---------- Cart (localStorage) ---------- **/
+    /** Cart localStorage  **/
     const cartKey = 'rcb_cart_v1';
     const viewCartBtn = document.getElementById('viewCart');
     const cartDialog = document.getElementById('cartDialog');
@@ -317,7 +310,6 @@
       cartDialog.close();
     });
 
-    // Init
     updateCartCount();
     applyFilters();
   </script>
