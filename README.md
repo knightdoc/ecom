@@ -13,4 +13,4 @@ https://knightdoc.github.io/ecom/index.html
 
 ---------------------------------------------------------------------------------------------------
 -Update photos 
--Menu button to leave Menu page, Not Working
+-Menu button (Mobil) to leave store menu page, Not Working
