@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>River City Bakery | Fresh Breads, Pastries & Coffee</title>
+  <meta name="description" content="River City Bakery — Fresh, handcrafted breads, pastries, and local coffee in Jacksonville, FL." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="River City Bakery home">
+        <div class="brand-logo" aria-hidden="true"></div>
+        <span class="brand-name">River City Bakery</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <nav class="menu" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="store.html">Store 🛒</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-wrap">
+      <div>
+        <span class="tag">Fresh Daily • Jacksonville, FL</span>
+        <h1>Handcrafted Breads, Pastries & Coffee</h1>
+        <p>Small-batch, scratch-made recipes baked every morning. Order ahead, pick up in-store, or enjoy delivered goodness.</p>
+        <div class="cta">
+          <a class="btn" href="store.html">Shop Featured Items 🛒</a>
+          <a class="btn secondary" href="menu.html">View Full Menu</a>
+        </div>
+      </div>
+      <div>
+        <!-- Placeholder hero image -->
+        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?q=80&w=1600&auto=format&fit=crop" alt="Freshly baked bread and pastries on a wooden counter">
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Items -->
+  <section class="section">
+    <div class="container">
+      <h2>Bakery Favorites</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1533681018184-68bd1d883546?q=80&w=1200&auto=format&fit=crop" alt="Sourdough loaf">
+          <div class="card-body">
+            <h3>Country Sourdough</h3>
+            <p class="tiny">72-hr fermented, crackly crust, open crumb.</p>
+            <div class="price">$7.95</div>
+            <button class="btn add" data-item="Country Sourdough">Add to Cart</button>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1504882310871-cd6e2fb43625?q=80&w=1200&auto=format&fit=crop" alt="Assorted croissants">
+          <div class="card-body">
+            <h3>Butter Croissant (3)</h3>
+            <p class="tiny">Laminated layers, flaky and golden.</p>
+            <div class="price">$8.50</div>
+            <button class="btn add" data-item="Butter Croissant (3)">Add to Cart</button>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop" alt="Iced coffee">
+          <div class="card-body">
+            <h3>Cold Brew</h3>
+            <p class="tiny">12-hr steeped, smooth chocolate notes.</p>
+            <div class="price">$3.95</div>
+            <button class="btn add" data-item="Cold Brew">Add to Cart</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promo band (drop in audio or video later) -->
+  <section class="section">
+    <div class="container">
+      <div class="promo">
+        <strong>Now playing:</strong>
+        <span class="tiny">Behind the Bake — a 30-sec peek into our morning routine.</span>
+        <!-- Placeholder for course audio/video requirement -->
+        <!-- Example: <audio controls src="media/behind-the-bake.mp3"></audio> -->
+        <!-- Or: <video controls width="280" src="media/oven-tour.mp4"></video> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter (form requirement) -->
+  <section class="section">
+    <div class="container newsletter">
+      <h2>Get the Daily Bake List</h2>
+      <p class="tiny">Fresh loaves, seasonal pastries, occasional coupons. No spam—ever.</p>
+      <form onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
+        <div class="row">
+          <label class="sr-only" for="email">Email</label>
+          <input id="email" type="email" placeholder="you@example.com" required />
+          <button class="btn" type="submit">Subscribe</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Hours & Location (table requirement) -->
+  <section class="section">
+    <div class="container">
+      <h2>Visit Us</h2>
+      <div class="row" style="gap:18px">
+        <div style="flex:2;min-width:280px">
+          <table aria-label="Hours of operation">
+            <thead><tr><th>Day</th><th>Hours</th></tr></thead>
+            <tbody>
+              <tr><td>Mon–Fri</td><td>7:00 AM – 6:00 PM</td></tr>
+              <tr><td>Saturday</td><td>8:00 AM – 4:00 PM</td></tr>
+              <tr><td>Sunday</td><td>Closed</td></tr>
+            </tbody>
+          </table>
+          <p class="tiny" style="margin-top:10px">123 Bakery Lane, Jacksonville, FL 32246 • (123) 456-7890</p>
+        </div>
+        <div style="flex:3;min-width:280px">
+          <!-- Replace with real embedded map later -->
+          <img src="https://images.unsplash.com/photo-1501618669935-18b6ecb13d6d?q=80&w=1400&auto=format&fit=crop" alt="Cozy bakery interior">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container foot">
+      <div>
+        <strong>River City Bakery</strong><br/>
+        123 Bakery Lane, Jacksonville, FL 32246<br/>
+        (123) 456-7890 • hello@rivercitybakery.com
+        <div class="tiny" style="margin-top:6px">© 2025 River City Bakery. All rights reserved.</div>
+      </div>
+      <div>
+        <small>
+          <a href="privacy.html">Privacy Policy</a> ·
+          <a href="terms.html">Terms</a> ·
+          <a href="accessibility.html">Accessibility</a>
+        </small>
+        <div class="tiny" style="margin-top:8px">Follow us: <a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">TikTok</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.querySelector('.menu');
+    toggle?.addEventListener('click', () => menu.classList.toggle('show'));
+
+    // Fake add-to-cart (for demo)
+    document.querySelectorAll('.add').forEach(btn=>{
+      btn.addEventListener('click', e=>{
+        const item = e.currentTarget.getAttribute('data-item');
+        alert(`${item} added to cart 🛒`);
+      });
+    });
+  </script>
+</body>
+</html>
