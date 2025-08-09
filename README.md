@@ -14,15 +14,11 @@ https://knightdoc.github.io/ecom/index.html
 ---------------------------------------------------------------------------------------------------
 TO DO
 ---------------------------------------------------------------------------------------------------
-+ Update Placeholders 
-
-+ Menu button (Mobil) to leave store menu page, Not Working
+- [ ] Update Placeholders 
+- [ ] Menu button (Mobil) to leave store menu page, Not Working
     + Check Header
     + Check toggle Script 
     + Check stylesheet for Mobil
-
-+ Add audio/Video
-
-
+- [ ] Add audio/Video
 
 
