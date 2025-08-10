@@ -32,7 +32,7 @@ img { max-width: 100%; display: block; }
   padding: 0 16px;
 }
 
-/* --- HEADER --- */
+/* --- header --- */
 header {
   position: sticky;
   top: 0;
@@ -101,7 +101,7 @@ header {
   .nav-toggle { display: block; }
 }
 
-/* --- HERO --- */
+/* --- hero --- */
 .hero {
   background: linear-gradient(160deg, #fff8ef, #fff);
   border-bottom: 1px solid #f1e9de;
@@ -157,7 +157,7 @@ header {
   margin-bottom: 10px;
 }
 
-/* --- SECTIONS --- */
+/* --- sections --- */
 .section { padding: 40px 0; }
 .section h2 {
   font-family: "Playfair Display", serif;
@@ -184,7 +184,7 @@ header {
 .tiny { color: var(--muted); font-size: .92rem; }
 .add { margin-top: 8px; }
 
-/* --- FOOTER --- */
+/* --- footer --- */
 footer {
   margin-top: 40px;
   background: var(--paper);
