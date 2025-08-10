@@ -200,13 +200,13 @@ footer {
 @media (max-width: 640px) { .foot { grid-template-columns: 1fr; } }
 
 
-/*-- TEST for store page imgaes --- */ 
+/*--------------------------------------------------------------------- TEST for store page imgaes --------------------------------------------------------------------------------------------------------- */ 
 
 
 .store .card img {
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;   /* Adjust to 1 / 1 for squares */
+  aspect-ratio: 4 / 3;  
   object-fit: cover;   
   display: block;
   border-radius: 12px;  
