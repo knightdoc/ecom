@@ -15,13 +15,12 @@ Work In Progress Draft 2
 TO DO
 ---------------------------------------------------------------------------------------------------
 - [x] Update Placeholders 
-- [ ] Menu button (Mobil) to leave store menu page, Not Working
+- [x] Menu button (Mobil) to leave store menu page, Not Working
     + Check Header
     + Check toggle Script 
     + Check stylesheet for Mobil
 - [x] img formating
 - [x] stylesheet
-- [ ] Add audio
 - [x] Add Video
 
 
