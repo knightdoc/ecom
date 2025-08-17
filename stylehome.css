@@ -199,10 +199,6 @@ footer {
 .foot small { color: var(--muted); }
 @media (max-width: 640px) { .foot { grid-template-columns: 1fr; } }
 
-
-/*--------------------------------------------------------------------- TEST for store page imgaes --------------------------------------------------------------------------------------------------------- */ 
-
-
 .store .card img {
   width: 100%;
   height: auto;
@@ -210,5 +206,21 @@ footer {
   object-fit: cover;   
   display: block;
   border-radius: 12px;  
+}
+
+/* --- test edit for google map --- */
+
+
+.map-embed {
+  aspect-ratio: 16 / 9;   /* Adjust for taller/shorter map */
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.map-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
 }
 
