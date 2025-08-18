@@ -3,7 +3,7 @@ E-Commerce Website Project
 Work In Progress Draft 2 
 ---------------------------------------------------------------------------------------------------
 + Author: Aaron Timm
-+ updated 8/10/2025
++ updated 8/17/2025
 + COP2822
 ---------------------------------------------------------------------------------------------------
 + River City Bakery Website
@@ -22,6 +22,8 @@ TO DO
 - [x] img formating
 - [x] stylesheet
 - [x] Add Video
+- [ ] Google Map integration for home page - NOT WORKING
+- [x] Replacement location for home - Working
 
 
 
